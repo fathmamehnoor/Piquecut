@@ -6,7 +6,8 @@ Piquecut is a machine learning model designed to efficiently arrange multiple im
 
 ### Download Model
 
-You can download the pre-trained model from [this link](https://www.kaggle.com/models/fathmamehnoor/piquecut).
+You can download the pre-trained model in zip file from [this link](https://www.kaggle.com/code/fathmamehnoor/notebook30769389f1/output).
+
 
 ### Running the Notebook
 
