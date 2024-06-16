@@ -9,9 +9,9 @@ const Home = () => {
     const { files, setFiles, popup, setPopup } = useContext(GeneralContext);
     const [imageDimensionsPopupVisible, setImageDimensionsPopupVisible] = useState(false);
     const [currentFile, setCurrentFile] = useState(null);
-    const [imageDimensions, setImageDimensions] = useState({});
+    const [imageDimensions] = useState({});
     const [loading, setLoading] = useState(false); // State to manage loading state
-    const [layoutImageURL, setLayoutImageURL] = useState('');
+    const [setLayoutImageURL] = useState('');
 
     const handleFile = (e) => {
         console.log("handleFile called");
