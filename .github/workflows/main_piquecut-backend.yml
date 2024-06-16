@@ -75,5 +75,5 @@ jobs:
         with:
           app-name: 'piquecut-backend'
           slot-name: 'Production'
-          package: ./backend
+          package: .
           
