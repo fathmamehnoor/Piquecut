@@ -72,7 +72,7 @@ const Home = () => {
             }));
     
             // Send POST request to predict endpoint
-            const response = await axios.post('http://localhost:5000/predict', { observation: dataset });
+            const response = await axios.post('piquecut-backend.azurewebsites.net/predict', { observation: dataset });
     
             // Assuming the response contains image_path
             setLayoutImageURL(response.data.image_path);
