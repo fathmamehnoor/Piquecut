@@ -29,19 +29,6 @@ class Utils {
         );
     };
 
-    howManyImagesVisible = (parent) => {
-        let nos = 0;
-        if (parent.children.length > 0) {
-            let images = [...parent.children];
-            images.map((image) => {
-                let bool = this.isElementXPercentInViewport(image, parent, 50);
-                if (bool) {
-                    nos += 1;
-                }
-            });
-        }
-        return nos; // Return the accumulated value, which might be 0 if no children are present
-    };
     
     fitImage = (height, width) => {
         let imgRatio = width/height;
