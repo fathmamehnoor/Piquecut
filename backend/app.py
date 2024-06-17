@@ -11,8 +11,10 @@ import base64
 
 
 app = Flask(__name__)
-CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app, resources={r"/predict": {"origins": "https://piquecut.azurewebsites.net"}})
+
+# Optionally, modify CORS_HEADERS
+app.config['CORS_HEADERS'] = 'Content-Type, X-Custom-Header' 
 
 
 
