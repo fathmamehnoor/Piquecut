@@ -3,7 +3,7 @@ import { GeneralContext } from "../GeneralContextProvider.js";
 import Popup from "./Popup.js";
 import Carousel from "./Carousel.js";
 import ImageDimensionsPopup from "./ImageDimensionsPopup.js";
-import axios from 'axios';
+import axios from './lib/axios.js';
 
 const Home = () => {
     const { files, setFiles, popup, setPopup } = useContext(GeneralContext);
