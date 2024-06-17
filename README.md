@@ -34,7 +34,7 @@ PiqueCut is a web app that utilizes machine learning to optimize the placement o
 
 7. Access the Frontend:
 
-    Go to the hosted frontend URL and upload your sticker images and configure placement preferences through the web interface.: 
+    Go to the hosted frontend URL and upload your sticker images and configure placement preferences through the web interface(open in chromium).: 
     https://piquecut.azurewebsites.net/
 
 
