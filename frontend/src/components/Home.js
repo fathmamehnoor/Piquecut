@@ -72,7 +72,7 @@ const Home = () => {
             }));
     
             // Send POST request to predict endpoint
-            const response = await axios.post('http://127.0.0.1:5000/', { observation: dataset });
+            const response = await axios.post('http://localhost:5000/predict', { observation: dataset });
     
             // Assuming the response contains image_path
             setLayoutImageURL(response.data.image_path);
