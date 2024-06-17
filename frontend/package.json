@@ -40,10 +40,11 @@
 
   },
   "jest": {
-       "watchPathIgnorePatterns": [
+    "resetMocks": false,
+    "transformIgnorePatterns": [
           "/node_modules/(?!(axios)/)"
         ]
-     }
+  }
 
 
 
