@@ -33,7 +33,7 @@ jobs:
       - name: Install flask-cors separately
         run: |
             source venv/bin/activate
-            pip install -U flask-cors
+            pip install Flask-Cors
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
