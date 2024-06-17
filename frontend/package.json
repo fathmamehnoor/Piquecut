@@ -39,20 +39,11 @@
     ]
 
   },
-  
-  "jest": {
-    "rootDir": "src",
-    "transform": {"^.+\\.[t|j]sx?$": "babel-jest"},
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.jsx?$",
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|svg|css|less|scss)$": "<rootDir>/__jest__/fileMock.js"
-    }
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
   }
 
 
