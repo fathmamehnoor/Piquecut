@@ -1,7 +1,6 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
-
 name: Build and deploy Python app to Azure Web App - piquecut-backend
 
 on:
@@ -23,25 +22,30 @@ jobs:
           python-version: '3.10'
 
       - name: Create and start virtual environment
-        run: |
-          python -m venv venv
-          source venv/bin/activate
-      
+        run: python -m venv venv
+
       - name: Install dependencies
-        run: pip install -r backend/requirements.txt
-        
+        run: |
+          source venv/bin/activate
+          pip install -r backend/requirements.txt
+          pip list  # This will print out the installed packages
+
+      - name: Install flask-cors separately
+        run: |
+            source venv/bin/activate
+            pip install -U flask-cors
+
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+        run: |
+          zip -r release.zip ./* -x 'venv/*'
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
         with:
           name: python-app
-          path: |
-            release.zip
-            !venv/
+          path: release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -50,7 +54,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
+      id-token: write # This is required for requesting the JWT
 
     steps:
       - name: Download artifact from build job
@@ -61,19 +65,17 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
-      
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_ED1FEDD941F1452FB03E2E58A3EC4DAA }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B7CEF06907B149878A76827E2A9737AA }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_91B8081A5A0D4CAE88A122EBFC62D9DF }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
           app-name: 'piquecut-backend'
-          slot-name: 'Production'
           package: .
-          
+
