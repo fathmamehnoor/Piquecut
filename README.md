@@ -31,18 +31,22 @@ PiqueCut is a web app that utilizes machine learning to optimize the placement o
 1. Git clone the backend directory: 
     `git clone https://github.com/fathmamehnoor/Piquecut/tree/main/backend`
 
-2. setup python environment: 
+2. Navigate to the Backend Directory:
     `cd backend`
+    
+3. Create a Virtual Environment:
     `python3 -m venv env`
+
+4. Activate the Virtual Environment:
     `source env/bin/activate`
 
-3. Install dependencies:
+5. Install dependencies:
     `pip install -r requirements.txt`
 
-4. Run the Backend: 
+6. Run the Backend: 
     `python3 app.py`
 
-5. Access the Frontend:
+7. Access the Frontend:
 
     Go to the hosted frontend URL and upload your sticker images and configure placement preferences through the web interface.: 
     `https://piquecut.azurewebsites.net/`
