@@ -17,7 +17,7 @@
   "scripts": {
     "start": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
     "build": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
-    "test": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts test",
+    "test": "./../../node_modules/.bin/jest",
     "eject": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts eject"
   },
   "eslintConfig": {
@@ -40,8 +40,17 @@
 
   },
   "jest": {
+    "rootDir": "src",
+    "transform": {"^.+\\.[t|j]sx?$": "babel-jest"},
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.jsx?$",
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
     "moduleNameMapper": {
-      "^axios$": "axios/dist/node/axios.cjs"
+      "\\.(jpg|jpeg|png|svg|css|less|scss)$": "<rootDir>/__jest__/fileMock.js"
     }
   }
 
