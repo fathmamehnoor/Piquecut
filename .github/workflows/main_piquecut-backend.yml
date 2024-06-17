@@ -68,14 +68,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_ED1FEDD941F1452FB03E2E58A3EC4DAA }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B7CEF06907B149878A76827E2A9737AA }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_91B8081A5A0D4CAE88A122EBFC62D9DF }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
           app-name: 'piquecut-backend'
+          slot-name: 'Production'
           package: .
 
