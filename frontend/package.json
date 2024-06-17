@@ -44,6 +44,9 @@
         "transform": {
           "^.+\\.jsx?$": "babel-jest"
         }
- }
+ },
+ "babel": {
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+}
 
 }
