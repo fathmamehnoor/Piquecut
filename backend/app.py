@@ -13,6 +13,9 @@ import base64
 app = Flask(__name__)
 cors = CORS(app, resources={r"/predict/*": {"origins": "*"}})
 
+def cm_to_px(cm, dpi=300):
+    return int(cm * dpi / 2.54)
+
 
 
 @app.route('/predict', methods=['POST'])
@@ -28,6 +31,9 @@ def predict(): # Ensure env is defined globally if needed for subsequent predict
             width = item['width']
             height = item['height']
             image = item['image']  # This should be the File object
+
+            width_px = cm_to_px(width)
+            height_px = cm_to_px(height)
 
             # Convert File object to PIL Image
             binary_data = base64.b64decode(image)
@@ -45,7 +51,7 @@ def predict(): # Ensure env is defined globally if needed for subsequent predict
             image.load()  
         
             # Append the image and related data to the dataset
-            dataset.append({"image": image, "filename": filename, "width": width, "height": height})
+            dataset.append({"image": image, "filename": filename, "width": width_px, "height": height_px})
 
 
         model = PPO.load("model/ppo_sticker_placement")
