@@ -40,7 +40,7 @@
 
   },
   "jest": {
-       "transformIgnorePatterns": [
+       "watchPathIgnorePatterns": [
           "/node_modules/(?!(axios)/)"
         ]
      }
